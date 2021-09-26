@@ -30,7 +30,7 @@ $ver_ordinal_and_date = "41, 03-Dec-16";
 # thanks to Jeff Price, and for big-endian machines (for John McVeagh).
 #
 # v1 was modified (commented, corrected & enhanced to handle accented
-# characters) by Jacky Bruno <jacky.bruno[at]free.fr> coll�ge de Villeneuve
+# characters) by Jacky Bruno <jacky.bruno[at]free.fr> collège de Villeneuve
 # sur Yonne 89500, in april 2003.  His version was included in some of
 # the dbf2csv.zip distributions as dbf2csv_accentued_characters.pl.
 #
@@ -46,7 +46,7 @@ $ver_ordinal_and_date = "41, 03-Dec-16";
 # I hope!).  Also, tries to tell you what program created the database,
 # based on the version number.  Also, no longer changes '~'s to blanks.
 #
-# Dbf2csv v6, 5/7/2004 - by David Mar�n <dmarin-NO-SPAM@dyr.es>
+# Dbf2csv v6, 5/7/2004 - by David Marín <dmarin-NO-SPAM@dyr.es>
 # Handle almost all PC850 accented characters, not just French ones
 #
 # Dbf2csv v7, 7/19/2005 - 'F' fields now fully supported, and '+'
@@ -219,8 +219,8 @@ $zerobyte = "\0";  # same as pack("c",0), or in Perl 5 it could also be chr(0)
 # use the '-ta' or '-tu' option to adjust $translate and $garde_accent
 
 # By Jacky Bruno...
-# The file can have accentued characters coded in DOS pc style (where, for example "�"
-# is coded "82h") or coded in ANSI style (linux or Windows) ( "�" is coded "E9h")
+# The file can have accentued characters coded in DOS pc style (where, for example "é"
+# is coded "82h") or coded in ANSI style (linux or Windows) ( "é" is coded "E9h")
 # If codage is already ANSI, no need to re-code it: put $translate to 0
 # If codage is pc, you can choose to re-code or let codage the way it is.
 # Accent codage change? codage pc --> codage this way:
@@ -243,12 +243,12 @@ $code_pc="\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a".
          "\xa4\xa5\xb5\xb6\xb7\xc6\xc7\xd2\xd3\xd4".
          "\xd5\xd6\xd7\xd8\xe0\xe1\xe2\xe3\xe4\xe5".
          "\xe9\xea\xeb\xec\xed";
-$code_ansi="����������".
-           "����������".
-           "����������".
-           "����������".
-           "i���������".
-           "�����";
+$code_ansi="üéâäàåçêëè".
+           "ïîìÄÅÉæÆôö".
+           "òûùÿÖÜáíóú".
+           "ñÑÁÂÀãÃÊËÈ".
+           "iÍÎÏÓßÔÒõÕ".
+           "ÚÛÙýÝ";
 $code_brut="ueaaaaceee".
            "iiiAAEeEoo".
            "ouuyOUaiou".
@@ -1351,7 +1351,7 @@ sub do_a_file {
       $errlevel = 2;
    } else {
       # if input file name was upper-case, make output file name upper-case, too
-      # (the same in french) si fichier d'entr�e est en majuscules, fichier de sortie en majuscules aussi
+      # (the same in french) si fichier d'entrée est en majuscules, fichier de sortie en majuscules aussi
       $outFile = $inFile;
       if ($jsonmode) {
          $outFile =~ s/\.dbf$/\.json/i;

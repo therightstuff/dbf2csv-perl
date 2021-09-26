@@ -1,3 +1,6 @@
 *.dbf
 *.fpt
 *.csv
+
+# ide specific
+.vscode
