@@ -1,0 +1,73 @@
+            DBF2CSV v5 is a program to convert .DBF database
+              files to .CSV (comma-separated text) format
+
+                             --------------
+
+Installation instructions for DBF2CSV:
+
+
+1) Open a "DOS Box" (command line).
+
+2) Put all six files in a directory on your PATH:
+
+     DBF2CSV.TXT  (this file)
+     DBF2CSV.BAT  (a batch file to run DBF2CSV, for convenience)
+     DBF2CSV.PL   (the DBF2CSV program, written in Perl)
+     PERL4S.EXE   (a small 16-bit DOS implementation of Perl)
+     PERL4W.EXE   (a small 16-bit Windows implementation of Perl)
+     PERL4W32.EXE (a small Win32 implementation of Perl)
+
+   (Note: you can unzip the files from DBF2CSV.ZIP using pkunzip
+   or WinZip, but if you are reading this file then you've
+   probably already figured that out.)
+
+3) If you just want to run DBF2CSV from a command prompt, then
+   that's all you need to do to install it.
+
+   If you want to run DBF2CSV as a Windows program, then you need
+   to create a Start Menu shortcut.  If your current directory is
+   c:\mydir\ then the shortcut should run it like this:
+
+        c:\mydir\perl4w32.exe c:\mydir\dbf2csv.pl -p
+
+   To create the shortcut, go to:
+     Start ->
+       Settings ->
+         {Taskbar or Start Menu} ->
+            {Advanced or Start Menu Programs}
+   ...and then Add the program to your start menu.
+
+
+                             --------------
+
+
+For usage instructions from a command prompt, run it with no parameters:
+
+     DBF2CSV
+
+Then, to convert a .dbf file, just run it with the name of the .dbf file:
+
+     DBF2CSV afile.DBF
+
+That's all there is to it.
+
+
+                             --------------
+
+
+Note #1:  If you use a 16-bit Perl implemention such as Perl4s.exe or
+Perl4w.exe then this program is limited to the use of "8.3" (short)
+file names.  If you need to use long file names, then you must use a
+32-bit version of Perl, such as Perl4W32.exe.
+
+Note #2:  The source code for Perl4s.exe and Perl4w.exe (and a few
+more versions of Perl 4.036) is available at http:\www.burtonsys.com\
+Click on "Support" and "Downloads" and then "more files... (auxiliary
+download page)".
+
+
+                             --------------
+
+
+
+-by Dave Burton <dave@burtonsys.com> 1-919-481-0149  (uncopyrighted)
