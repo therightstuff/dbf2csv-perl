@@ -329,6 +329,7 @@ sub fetch_fpt_memo {
       return '';
    }
    local($memotype, $memolen) = unpack( "NN", $fbuf );
+   print "memo type: $memotype / memo len: $memolen\n";
    # 'N' is 4-byte big-endian integer
    if (($memotype < 0) || ($memotype > 2)) {
       print "Warning: unrecognized Memo type $memotype for Memo block $blocknum\n" .
@@ -525,6 +526,7 @@ sub fetch_memo {
       # not currently implemented
       $result = &fetch_dbt_memo( $blocknum );
    } else {
+      print "$blocknum\n";
       $result = &fetch_fpt_memo( $blocknum );
    }
    if ('' eq $result) {
@@ -532,6 +534,7 @@ sub fetch_memo {
    } else {
       $real_memo_count++;
    }
+   print "$result\n";
    return $result;
 } #fetch_memo
 
@@ -1183,6 +1186,9 @@ sub cvt1file {
       if ($has_memo_fields) {
          for ($i=1; $i <= $numfields; $i++) {
             if ('M' eq $fld_typ[$i]) {
+               #if (0 != $fields[$i]) {
+               #   print "fetch_memo called for field $fld_nam[$i] $fields[$i]\n";
+               #}
                $fields[$i] = &fetch_memo( $infile, $fields[$i] );
             }
          }
@@ -1292,7 +1298,8 @@ sub cvt1file {
       # comment-out the next five lines:
       if ($deleted_flag ne '') {
          $skipped++;
-         print "Warning: record $recnum is marked for delete; $skipped records skipped.\n";
+         # TODO add $recnum to array then print warning at the end, also remove "\n" from ".\n"
+         #print "Warning: record $recnum is marked for delete; $skipped records skipped.\n";
          next;
       }
       # write the converted record, using the format built above
